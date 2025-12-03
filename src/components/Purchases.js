@@ -1,14 +1,14 @@
 export function renderPurchases(container, purchases) {
-    if (purchases.length === 0) {
-        container.innerHTML = `
+	if (purchases.length === 0) {
+		container.innerHTML = `
       <div class="empty-state">
         <p>You haven't purchased any videos yet.</p>
       </div>
     `;
-        return;
-    }
+		return;
+	}
 
-    container.innerHTML = `
+	container.innerHTML = `
     <div class="purchases-header">
       <h2>My Purchases</h2>
     </div>

@@ -1,7 +1,7 @@
 import { videos } from '../data/videos.js';
 
 export function renderCatalog(container, onVideoSelect) {
-    container.innerHTML = `
+	container.innerHTML = `
     <div class="catalog-header">
       <h2>Video Catalog</h2>
     </div>
@@ -18,12 +18,12 @@ export function renderCatalog(container, onVideoSelect) {
     </div>
   `;
 
-    // Add event listeners
-    container.querySelectorAll('.video-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const id = parseInt(item.dataset.id);
-            const video = videos.find(v => v.id === id);
-            onVideoSelect(video);
-        });
-    });
+	// Add event listeners
+	container.querySelectorAll('.video-item').forEach(item => {
+		item.addEventListener('click', () => {
+			const id = parseInt(item.dataset.id);
+			const video = videos.find(v => v.id === id);
+			onVideoSelect(video);
+		});
+	});
 }
