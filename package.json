@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "node src/bot.js",
     "start:frontend": "vite",
-    "start:bot": "node ./src/utils/bot.js",
-    "dev": "concurrently \"npm run start:frontend\" \"npm run start:bot\"",
+    "start:ngrok": "ngrok http 5173",
+    "dev": "concurrently \"npm run start:ngrok\" \"npm run start:frontend\" \"npm run start\"",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3",
+    "ngrok": "^3.3.0",
     "telegraf": "^4.16.3"
   }
 }
