@@ -9,7 +9,7 @@ let selectedProduct = null;
 let purchases = [];
 
 const app = document.querySelector('#app');
-const API_URL = import.meta.env.PROD ? 'https://video-vendor-app.fly.dev' : 'http://localhost:3000';
+const API_URL = import.meta.env.PROD ? 'https://market-bot-app-qs1elg.fly.dev' : 'http://localhost:3000';
 
 async function fetchProducts() {
     try {

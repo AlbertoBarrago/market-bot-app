@@ -84,6 +84,8 @@ Click the button below to open the catalog.`;
 async function startProductionBot() {
     try {
         const fullWebhookUrl = `${MINI_APP_URL}${WEBHOOK_PATH}`;
+        console.log(`🔧 Attempting to set webhook to: ${fullWebhookUrl}`);
+        console.log(`🔧 BOT_TOKEN length: ${BOT_TOKEN?.length}`);
 
         const setHook = await bot.telegram.setWebhook(fullWebhookUrl);
 
