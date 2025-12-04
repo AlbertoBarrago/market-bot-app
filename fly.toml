@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for market-bot-app-qs1elg on 2025-12-04T21:17:42Z
+# fly.toml app configuration file generated for video-vendor-app on 2025-12-04T14:56:45Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -13,7 +13,7 @@ primary_region = 'fra'
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ['app']
 
 [[vm]]

@@ -2,7 +2,6 @@ import { Telegraf } from 'telegraf';
 import dotenv from 'dotenv';
 import express from 'express';
 import path from 'path';
-import cors from 'cors';
 import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
 

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node src/utils/bot.js",
+    "start": "node src/server/bot.js",
     "start:frontend": "vite",
     "start:ngrok": "ngrok http 5173",
     "dev": "concurrently \"npm run start:ngrok\" \"npm run start:frontend\" \"npm run start\"",

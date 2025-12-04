@@ -4,7 +4,7 @@
  * @param products
  * @param onProductSelect
  */
-export function renderCatalog(container, products, onProductSelect, ) {
+export function renderCatalog(container, products, onProductSelect) {
 	container.innerHTML = `
     <div class="catalog-header">
       <h2>Product Catalog</h2>
@@ -25,7 +25,7 @@ export function renderCatalog(container, products, onProductSelect, ) {
 	// Add event listeners
 	container.querySelectorAll('.product-item').forEach(item => {
 		item.addEventListener('click', () => {
-			const id = parseInt(item.dataset.id);
+			const id = item.dataset.id;
 			const product = products.find(p => p.id === id);
 			onProductSelect(product);
 		});
