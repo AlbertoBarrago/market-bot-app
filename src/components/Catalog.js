@@ -5,7 +5,7 @@
  * @param onProductSelect
  */
 export function renderCatalog(container, products, onProductSelect) {
-	container.innerHTML = `
+    container.innerHTML = `
     <div class="catalog-header">
       <h2>Product Catalog</h2>
     </div>
@@ -22,12 +22,11 @@ export function renderCatalog(container, products, onProductSelect) {
     </div>
   `;
 
-	// Add event listeners
-	container.querySelectorAll('.product-item').forEach(item => {
-		item.addEventListener('click', () => {
-			const id = item.dataset.id;
-			const product = products.find(p => p.id === id);
-			onProductSelect(product);
-		});
-	});
+    container.querySelectorAll('.product-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const id = item.dataset.id;
+            const product = products.find(p => p.id === id);
+            onProductSelect(product);
+        });
+    });
 }

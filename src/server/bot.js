@@ -37,7 +37,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
 app.get('/api/products', async (req, res) => {
     try {
         const products = await Product.find({});
@@ -54,13 +53,11 @@ app.get('/api/products', async (req, res) => {
 });
 
 app.use(bot.webhookCallback(WEBHOOK_PATH));
-
 app.use(express.static(DIST_PATH));
-console.log(`✅ Serving static files from: ${DIST_PATH}`);
 
 bot.start(async (ctx) => {
     const userName = ctx.from.first_name || 'valued customer';
-    const welcomeMessage = `👋 Welcome, ${userName}, to the Video Shop! 
+    const welcomeMessage = `👋 Welcome, ${userName}, to the Product Shop! 
 You can browse and purchase exclusive video content right here in Telegram.
 
 Click the button below to open the catalog.`;
@@ -84,9 +81,6 @@ Click the button below to open the catalog.`;
 async function startProductionBot() {
     try {
         const fullWebhookUrl = `${MINI_APP_URL}${WEBHOOK_PATH}`;
-        console.log(`🔧 Attempting to set webhook to: ${fullWebhookUrl}`);
-        console.log(`🔧 BOT_TOKEN length: ${BOT_TOKEN?.length}`);
-
         const setHook = await bot.telegram.setWebhook(fullWebhookUrl);
 
         if (setHook) {
@@ -97,7 +91,6 @@ async function startProductionBot() {
 
         app.listen(PORT, () => {
             console.log(`🌐 Server is running and listening on port ${PORT}`);
-            console.log(`Video Shop Bot (Webhook Mode) is active.`);
         });
 
     } catch (error) {
