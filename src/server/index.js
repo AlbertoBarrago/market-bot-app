@@ -30,6 +30,12 @@ const app = setupEndpoints(bot, WEBHOOK_PATH, DIST_PATH);
 
 setupBotCommands(bot, MINI_APP_URL);
 
+/**
+ * Configure the Telegram webhook and start the HTTP server for production.
+ *
+ * Attempts to set the bot webhook to `MINI_APP_URL + WEBHOOK_PATH` and starts the HTTP server listening on `PORT`.
+ * Logs success or failure for the webhook setup and the server start. On any setup error, logs the error and exits the process with code 1.
+ */
 async function startProductionBot() {
     try {
         const fullWebhookUrl = `${MINI_APP_URL}${WEBHOOK_PATH}`;

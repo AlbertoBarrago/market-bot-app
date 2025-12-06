@@ -1,6 +1,16 @@
 import express from 'express';
 import { Product } from './database.js';
 
+/**
+ * Create and configure an Express application with CORS headers, a products API route, bot webhook middleware, and static file serving.
+ *
+ * The GET /api/products endpoint responds with a JSON array of all Product documents where each item has an `id` string derived from `_id` (the original `_id` is removed). On failure that route responds with status 500 and `{ error: <message> }`.
+ *
+ * @param {object} bot - Bot instance exposing `webhookCallback(path)` middleware.
+ * @param {string} WEBHOOK_PATH - Path at which the bot webhook middleware is mounted.
+ * @param {string} DIST_PATH - Filesystem directory served as static assets.
+ * @returns {import('express').Application} The configured Express application.
+ */
 export function setupEndpoints(bot, WEBHOOK_PATH, DIST_PATH) {
     const app = express();
 
