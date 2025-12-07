@@ -24,100 +24,175 @@ body {
 }
 
 /* Catalog */
+.catalog-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .catalog-header h2 {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--button-color), var(--link-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .product-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
 }
 
 .product-item {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
   background-color: var(--secondary-bg-color);
-  padding: 10px;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 16px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .product-item:active {
-  opacity: 0.7;
+  transform: translateY(-2px);
 }
 
 .product-thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .product-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 8px;
 }
 
 .product-info h3 {
-  margin: 0 0 4px 0;
-  font-size: 16px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .price {
   margin: 0;
-  color: var(--hint-color);
-  font-weight: 500;
+  color: var(--button-color);
+  font-weight: 700;
+  font-size: 20px;
 }
 
 /* Details */
 .product-details {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .detail-thumb {
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 16px;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: white;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.product-details h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
 }
 
 .detail-description {
-  color: var(--hint-color);
-  line-height: 1.5;
+  color: var(--text-color);
+  line-height: 1.7;
+  font-size: 15px;
+  text-align: left;
+  background: var(--secondary-bg-color);
+  padding: 16px;
+  border-radius: 12px;
+  border-left: 4px solid var(--button-color);
 }
 
 .detail-price {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--button-color);
+  text-align: center;
+  padding: 16px;
+  background: var(--secondary-bg-color);
+  border-radius: 12px;
 }
 
 /* Purchases */
 .view-purchases-btn {
   margin-top: 20px;
   width: 100%;
-  padding: 12px;
-  background-color: var(--secondary-bg-color);
+  padding: 14px;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
   border: none;
-  border-radius: 8px;
-  color: var(--link-color);
+  border-radius: 12px;
   font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-purchases-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.view-purchases-btn:active {
+  transform: translateY(0);
 }
 
 .download-btn {
   margin-top: 8px;
-  padding: 6px 12px;
+  padding: 10px 16px;
   background-color: var(--button-color);
   color: var(--button-text-color);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
