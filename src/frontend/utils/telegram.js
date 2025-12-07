@@ -1,28 +1,4 @@
-const mockTelegram = {
-	ready: () => {},
-	expand: () => {},
-	MainButton: {
-		setText: () => {},
-		show: () => {},
-		hide: () => {},
-		onClick: () => {},
-		offClick: () => {}
-	},
-	BackButton: {
-		show: () => {},
-		hide: () => {},
-		onClick: () => {}
-	},
-	showConfirm: (message, callback) => {
-		const confirmed = window.confirm(message);
-		callback(confirmed);
-	},
-	showAlert: (message) => {
-		window.alert(message);
-	}
-};
-
-export const tg = window.Telegram?.WebApp || mockTelegram;
+export const tg = window.Telegram?.WebApp;
 export const isTelegramEnv = !!window.Telegram?.WebApp;
 
 export function initTelegram() {
@@ -37,7 +13,6 @@ export function setMainButton(text, onClick, isVisible = true) {
 		tg.MainButton.onClick(onClick);
 	} else {
 		tg.MainButton.hide();
-		tg.MainButton.offClick(onClick);
 	}
 }
 
