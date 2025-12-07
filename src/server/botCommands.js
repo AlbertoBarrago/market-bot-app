@@ -71,4 +71,69 @@ Click the button below to open the catalog.`;
             await ctx.reply('Sorry, there was an error loading the products. Please try again later.');
         }
     });
+
+    bot.help(async (ctx) => {
+        const helpMessage = `📖 *Available Commands:*
+
+/start - Open the main menu
+/help - Show this help message
+/products - View all products
+
+You can also send me any message and I'll respond!`;
+
+        await ctx.reply(helpMessage, { parse_mode: 'Markdown' });
+    });
+
+    bot.command('products', async (ctx) => {
+        const keyboard = {
+            reply_markup: {
+                inline_keyboard: [
+                    [{
+                        text: '🚀 Open Catalog',
+                        web_app: {
+                            url: MINI_APP_URL
+                        }
+                    }],
+                    [{
+                        text: '📦 View Products',
+                        callback_data: 'view_products'
+                    }]
+                ]
+            }
+        };
+
+        await ctx.reply('Choose how you want to view products:', keyboard);
+    });
+
+    bot.on('text', async (ctx) => {
+        const message = ctx.message.text.toLowerCase();
+
+        // Ignore commands that are already handled
+        if (message.startsWith('/')) {
+            return;
+        }
+
+        // Simple response with menu
+        const keyboard = {
+            reply_markup: {
+                inline_keyboard: [
+                    [{
+                        text: '🚀 Open Catalog',
+                        web_app: {
+                            url: MINI_APP_URL
+                        }
+                    }],
+                    [{
+                        text: '📦 View Products',
+                        callback_data: 'view_products'
+                    }]
+                ]
+            }
+        };
+
+        await ctx.reply(
+            `👋 Hi! I received your message: "${ctx.message.text}"\n\nUse the buttons below to browse products or send /help for more options.`,
+            keyboard
+        );
+    });
 }
